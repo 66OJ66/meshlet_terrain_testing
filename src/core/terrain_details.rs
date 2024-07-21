@@ -8,5 +8,5 @@ use bevy::prelude::*;
 pub struct TerrainDetails {
     pub _gltf_handle: Handle<Gltf>,
     pub meshlet_scene: MeshletScene,
-    pub colliders: Vec<SectorColliderNode>,
+    pub colliders: Vec<TerrainColliderNode>,
 }

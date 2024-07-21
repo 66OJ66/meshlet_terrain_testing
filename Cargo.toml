@@ -18,6 +18,7 @@ bevy = { version = "0.14", default-features = false, features = [
     "tonemapping_luts",
     "basis-universal",
     "zstd",
+    "zstd",
     "serialize",
     "asset_processor",
     "dynamic_linking",

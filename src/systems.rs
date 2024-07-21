@@ -16,7 +16,7 @@ const DEFAULT_PLAYER_SPEED: f32 = 10.0;
 const CAMERA_VERTICAL_OFFSET: f32 = 1.5;
 
 //****************************************************************************
-// ENTER SYSTEMS - GAMESTATE:STARTUP
+// UPDATE SYSTEMS - GAMESTATE:STARTUP
 //****************************************************************************
 
 /// Transitions the GameState to InGame.

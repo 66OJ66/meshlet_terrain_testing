@@ -28,7 +28,7 @@ pub struct SerialisedTerrainDetails {
 pub struct ProcessedTerrainDetails {
     pub gltf_path: String,
     pub meshlet_nodes: Vec<SerialisedMeshletNode>,
-    pub colliders: Vec<SectorColliderNode>,
+    pub colliders: Vec<TerrainColliderNode>,
 }
 
 //****************************************************************************
@@ -211,7 +211,7 @@ impl AssetLoader for ProcessedTerrainDetailsAssetLoader {
             fn gltf_node_to_collider_node(
                 gltf_node: &GltfNode,
                 processed_colliders: &HashMap<Handle<GltfMesh>, Vec<Collider>>,
-            ) -> SectorColliderNode {
+            ) -> TerrainColliderNode {
                 let children = gltf_node
                     .children
                     .iter()
@@ -228,7 +228,7 @@ impl AssetLoader for ProcessedTerrainDetailsAssetLoader {
                     Vec::new()
                 };
 
-                SectorColliderNode {
+                TerrainColliderNode {
                     colliders,
                     transform: gltf_node.transform,
                     children,
@@ -353,11 +353,10 @@ pub enum AssetLoadState {
 }
 
 //****************************************************************************
-// ENTER SYSTEMS - startup_state
+// ENTER SYSTEMS - GAMESTATE:STARTUP
 //****************************************************************************
 
-/// Starts loading the [`WorldMap`] asset and [`Sector`] assets.
-/// Also start loading initial state.
+/// Starts loading the terrain.
 pub fn asset_startup_enter_system(
     mut commands: Commands,
     // Resources
@@ -372,7 +371,7 @@ pub fn asset_startup_enter_system(
 }
 
 //****************************************************************************
-// UPDATE SYSTEMS - startup_state
+// UPDATE SYSTEMS - GAMESTATE:STARTUP
 //****************************************************************************
 
 pub fn finalise_startup_system(
