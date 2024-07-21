@@ -1,0 +1,10 @@
+(
+    meta_format_version: "1.0",
+    asset: Process(
+        processor: "bevy_asset::processor::process::LoadAndSave<meshlet_terrain_testing::assets::ProcessedTerrainDetailsAssetLoader, meshlet_terrain_testing::assets::ProcessedTerrainSaver>",
+        settings: (
+            loader_settings: (),
+            saver_settings: (),
+        ),
+    ),
+)
