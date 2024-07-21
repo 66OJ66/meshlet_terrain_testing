@@ -19,6 +19,8 @@ bevy = { version = "0.14", default-features = false, features = [
     "basis-universal",
     "zstd",
     "serialize",
+    "asset_processor",
+    "dynamic_linking",
     "meshlet",
     "meshlet_processor",
 ] }
